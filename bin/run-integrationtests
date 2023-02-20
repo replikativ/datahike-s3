@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o pipefail
+
+TIMBRE_LEVEL=':warn' DATAHIKE_STORE_BACKEND=s3 DATAHIKE_STORE_CONFIG='{:bucket "datahike-s3-instance" :region "us-west-1"}' clojure -M:test
