@@ -7,39 +7,36 @@ workflows:
   build-test-and-deploy:
     jobs:
       - tools/setup:
-          context: dockerhub-deploy
+          context: docker-deploy
           setup_cljs: false
-      - tools/format:
-          context: dockerhub-deploy
-          requires:
-            - tools/setup
-            - tools/setup
       - tools/build:
-          jarname: "datahike-s3"
-          context: dockerhub-deploy
+          context: docker-deploy
+          build_cljs: false
           requires:
             - tools/setup
-      - tools/deploy-snapshot:
-          jarname: "datahike-s3"
+      - tools/format:
+          context: docker-deploy
+          requires:
+            - tools/setup
+      - tools/integrationtest:
+          context: docker-deploy
+          requires:
+            - tools/build
+      - tools/deploy:
           context:
             - clojars-deploy
-            - dockerhub-deploy
+            - docker-deploy
           filters:
             branches:
-              only: development
+              only: main
           requires:
-            - tools/setup
-            - tools/format
-            - tools/build
-      - tools/deploy-release:
-          jarname: "datahike-s3"
+            - tools/unittest
+      - tools/release:
           context:
-            - clojars-deploy
-            - dockerhub-deploy
+            - github-token
+            - docker-deploy
           filters:
             branches:
-              only: master
+              only: main
           requires:
-            - tools/setup
-            - tools/format
-            - tools/build
+            - tools/deploy
