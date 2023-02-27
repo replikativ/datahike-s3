@@ -30,7 +30,7 @@ workflows:
             branches:
               only: main
           requires:
-            - tools/unittest
+            - tools/integrationtest
       - tools/release:
           context:
             - github-token
