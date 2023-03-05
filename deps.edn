@@ -7,31 +7,13 @@
                                io.replikativ/datahike {:mvn/version "RELEASE"}}
                   :main-opts ["-m" "kaocha.runner"]}
 
-           :repl {:extra-deps {cider/cider-nrepl           {:mvn/version "0.27.4"}
-                               nrepl/nrepl                 {:mvn/version "0.9.0"}
-                               org.clojure/tools.namespace {:mvn/version "1.2.0"}}
-                  :main-opts ["-m" "nrepl.cmdline" "--middleware" "[cider.nrepl/cider-middleware]"]}
-
-           :jar {:extra-deps {com.github.seancorfield/depstar {:mvn/version "1.1.136"}}
-                 :main-opts ["-m" "hf.depstar.jar" "replikativ-konserve-s3.jar"]}
-
-           :deploy {:extra-deps {slipset/deps-deploy {:mvn/version "0.2.0"}}
-                    :main-opts ["-m" "deps-deploy.deps-deploy" "deploy" "replikativ-datahike-s3.jar"]}
-
-           :install {:extra-deps {slipset/deps-deploy {:mvn/version "0.2.0"}}
-                     :exec-fn deps-deploy.deps-deploy/deploy
-                     :exec-args {:installer :local
-                                 :artifact "replikativ-datahike-s3.jar"}}
-
            :format {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
                     :main-opts ["-m" "cljfmt.main" "check"]}
 
            :ffix {:extra-deps {cljfmt/cljfmt {:mvn/version "0.8.0"}}
                   :main-opts ["-m" "cljfmt.main" "fix"]}
 
-           :build  {:deps {io.github.seancorfield/build-clj       {:git/tag "v0.8.2"
-                                                                   :git/sha "0ffdb4c"}
-                           io.github.borkdude/gh-release-artifact {:git/sha "05f8d8659e6805d513c59447ff41dc8497878462"}
+           :build  {:deps {io.github.borkdude/gh-release-artifact {:git/sha "05f8d8659e6805d513c59447ff41dc8497878462"}
                            babashka/babashka.curl                 {:mvn/version "0.1.2"}
                            babashka/fs                            {:mvn/version "0.1.6"}
                            cheshire/cheshire                      {:mvn/version "5.10.2"}}

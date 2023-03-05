@@ -6,9 +6,9 @@
   (:import [clojure.lang ExceptionInfo]))
 
 (def org "timokramer")
-(def lib 'org.clojars.timokramer/konserve)
+(def lib 'org.clojars.timokramer/datahike-s3)
 (def current-commit (b/git-process {:git-args "rev-parse HEAD"}))
-(def version (format "0.7.%s" (b/git-count-revs nil)))
+(def version (format "0.1.%s" (b/git-count-revs nil)))
 (def class-dir "target/classes")
 (def basis (b/create-basis {:project "deps.edn"}))
 (def jar-file (format "target/%s-%s.jar" (name lib) version))
