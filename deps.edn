@@ -1,6 +1,6 @@
 {:deps {org.clojure/clojure                         {:mvn/version "1.10.3" :scope "provided"}
         io.replikativ/superv.async                  {:mvn/version "0.2.11"}
-        io.replikativ/konserve-s3                   {:mvn/version "0.1.0"}}
+        io.replikativ/konserve-s3                   {:mvn/version "0.1.6"}}
  :paths ["src"]
  :aliases {:test   {:extra-deps  {lambdaisland/kaocha {:mvn/version "1.60.977"}}
                     :extra-paths ["test"]}
