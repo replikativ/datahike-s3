@@ -4,7 +4,7 @@
 <a href="https://clojurians.slack.com/archives/CB7GJAN0L"><img src="https://img.shields.io/badge/clojurians%20slack-join%20channel-blueviolet"/></a>
 <a href="https://clojars.org/io.replikativ/datahike-s3"> <img src="https://img.shields.io/clojars/v/io.replikativ/datahike-s3.svg" /></a>
 <a href="https://circleci.com/gh/replikativ/datahike-s3"><img src="https://circleci.com/gh/replikativ/datahike-s3.svg?style=shield"/></a>
-<a href="https://github.com/replikativ/datahike-s3/tree/development"><img src="https://img.shields.io/github/last-commit/replikativ/datahike-s3/development"/></a>
+<a href="https://github.com/replikativ/datahike-s3/tree/main"><img src="https://img.shields.io/github/last-commit/replikativ/datahike-s3/main"/></a>
 </p>
 
 The goal of this backend is to support [S3](https://aws.amazon.com/s3). S3 is
