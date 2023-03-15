@@ -45,9 +45,6 @@ keyword `:s3`. If you want to use other backends than S3 please refer to the off
     (:require [datahike.api :as d]
               [datahike-s3.core]))
 
-  ;; This configuration suits the config of the container started above.
-  ;; In case you run your PostgreSQL instance with other settings, please
-  ;; adjust this configuration
   (def cfg {:store {:backend :s3
                     :bucket "datahike-s3-instance"
                     :region "us-west-1"
