@@ -1,8 +1,11 @@
 (ns datahike-s3.core
-  (:require [datahike.store :refer [empty-store delete-store connect-store default-config config-spec release-store]]
+  (:require [datahike.store :refer [empty-store delete-store connect-store default-config config-spec release-store store-identity]]
             [datahike.config :refer [map-from-env]]
             [konserve-s3.core :as k]
             [clojure.spec.alpha :as s]))
+
+(defmethod store-identity :s3 [store-config]
+  [:s3 (:region store-config) (:bucket store-config)])
 
 (defmethod empty-store :s3 [store-config]
   (k/connect-store store-config))
