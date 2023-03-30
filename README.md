@@ -19,7 +19,8 @@ Please read the [Datahike configuration docs](https://github.com/replikativ/data
 `create-database`, `connect` and `delete-database`:
 ```clojure
 {:store {:backend :s3
-         :bucket "datahike-s3-instance"
+         :bucket "datahike-s3"
+         :store-id "instance1"
          :region "us-west-1"
          :access-key "YOUR_ACCESS_KEY"
          :secret "YOUR_ACCESS_KEY_SECRET"}}
@@ -46,7 +47,8 @@ keyword `:s3`. If you want to use other backends than S3 please refer to the off
               [datahike-s3.core]))
 
   (def cfg {:store {:backend :s3
-                    :bucket "datahike-s3-instance"
+                    :bucket "datahike-s3"
+                    :store-id "instance1"
                     :region "us-west-1"
                     :access-key "YOUR_ACCESS_KEY"
                     :secret "YOUR_ACCESS_KEY_SECRET"}})
