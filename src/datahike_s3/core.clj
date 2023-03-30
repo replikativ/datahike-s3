@@ -5,7 +5,7 @@
             [clojure.spec.alpha :as s]))
 
 (defmethod store-identity :s3 [store-config]
-  [:s3 (:region store-config) (:bucket store-config)])
+  [:s3 (:region store-config) (:bucket store-config) (:store-id store-config)])
 
 (defmethod empty-store :s3 [store-config]
   (k/connect-store store-config))
@@ -18,7 +18,7 @@
 
 (defmethod default-config :s3 [config]
   (merge
-   (map-from-env :datahike-store-config {:bucket "datahike"})
+   (map-from-env :datahike-store-config {:bucket "datahike" :store-id "datahike"})
    config))
 
 (s/def :datahike.store.s3/backend #{:s3})
